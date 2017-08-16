@@ -4,6 +4,7 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import styles from './App.scss';
 import Head from '../Head';
 import ConferencePage from '../ConferencePage';
+import ConferenceForm from '../ConferenceForm';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Head />
       <div>
         <Switch>
+          <Route path="/conferences/new" component={ConferenceForm} />
           <Route path="/:year/:type/:country" render={redirect} />
           <Route path="/:type/:country" render={redirectOrRender} />
           <Route path="/:type" component={ConferencePage} />

@@ -4,6 +4,7 @@ import {uniq, sortBy} from 'lodash';
 import Favicon from 'react-favicon';
 import {Helmet} from 'react-helmet';
 
+import {Link as RoutedLink} from 'react-router-dom';
 import styles from './ConferencePage.scss';
 import Footer from '../Footer';
 import GithubStar from '../GithubStar';
@@ -135,6 +136,7 @@ export default class ConferencePage extends Component {
         <Helmet>
           <title>{TYPES[type]} conferences | Confs.tech</title>
         </Helmet>
+        <RoutedLink to="conferences/new">Add a conference</RoutedLink>
         <Favicon url={`/${type}.png`} />
         <div className={styles.Header}>
           <Heading element="h1">Find your next {TYPES[type]} conference</Heading>
