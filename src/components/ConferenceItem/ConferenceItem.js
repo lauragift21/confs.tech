@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import {parse} from 'date-fns';
+import {flatten} from 'lodash';
 
 import {formatDate, generateEventJSONLD} from './utils';
 import Heading from '../Heading';
@@ -84,5 +85,7 @@ function Cfp({url, date}) {
 
 
 function Topics({topics}) {
-  return topics.map((topic) => `#${topic}`).join(' ');
+  return flatten(topics.map((topic) => {
+    return [<Link key={topic} routed url={`/${topic}`}>#{topic}</Link>, ' '];
+  }));
 }
